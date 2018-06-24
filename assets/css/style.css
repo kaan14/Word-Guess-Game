@@ -34,7 +34,7 @@ header{
 #oneSide,#otherSide{
     border: 2px dashed; 
     float:left; 
-    height: 500px;
+    height: 600px;
     margin-right: 20px; 
     padding: 10px;  
 }

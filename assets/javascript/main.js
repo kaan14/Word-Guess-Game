@@ -4,7 +4,8 @@
 $(document).ready(function () {
 
 
-
+    var win = 0;
+    var lose = 0;
     var wordBank = ["string", "taste", "shelf", "fool", "excite", "rail", "release", "enjoy", "trade", "dorks", "girl", "sticks",
         "pretend", "relieved", "pickle", "volleyball", "plate", "puncture", "panoramic", "name", "motionless", "wail", "sad", "knowledge"];
 
@@ -17,11 +18,10 @@ $(document).ready(function () {
 
     // press "enter" to start,
     $("#startGame").on("click", function () {
-      var win = 0;
-      var lose = 0;
-  var numberof_Array = 0;
-      var letter_Not_in_wordChoose = [];
-      var isComplete = false;
+
+        var numberof_Array = 0;
+        var used_Letter = [];
+        var isComplete = false;
         var randomGenerate = generate();
         console.log(randomGenerate);
 
@@ -44,31 +44,77 @@ $(document).ready(function () {
 
 
         $(document).keypress(function (event) {
+            //if entry is already in the list, alert user
+            var keyCode = event.keyCode;
+            var key = event.key.toLowerCase();
+            console.log('key=' + key);
+            if (used_Letter.includes(key)) {
 
-            //if ((event.keycode >= 65 && event.keycode <= 90) || (event.keycode >= 97 && event.keycode <= 122)) {
-            //console.log(event);
-            for (var i = 0; i < array_Choose.length; i++) {
-                console.log(array_Choose[i]);
-                if (event.key == array_Choose[i]){
-                    array_Target[i] = array_Choose[i];
-                    console.log(event);
+                alert("You have already entered " + key);
+                return;
+            }
+            console.log(typeof keyCode);
+            if ((keyCode >= 65 && keyCode <= 90) || (keyCode >= 97 && keyCode <= 122)) {
+
+
+                for (var i = 0; i < array_Choose.length; i++) {
+                    //console.log(array_Choose[i]);
+                    if (key == array_Choose[i]) {
+                        array_Target[i] = key;
+                        // console.log(event);
+                    }
                 }
-                else {
-                    $("#lettersGuessed").html(event.key);
-                }
+                used_Letter.push(key);
+                $("#lettersGuessed").html(used_Letter);
+                $("#wordDash").html(array_Target);
+
 
             }
-            $("#wordDash").html(array_Target);
-
-            //}
+            else {
+                alert("Please enter a letter");
+                return;
+            }
 
             numberof_Array = numberof_Array - 1;
 
-            if (numberof_Array >=0)
-            {
-              $("#numberofGuess").html(numberof_Array);
+            if (numberof_Array >= 0) {
+                $("#numberofGuess").html(numberof_Array);
             }
 
+            if (!array_Target.includes("_")) {
+                   isComplete = true;
+             }
+
+             if (isComplete && numberof_Array >= 0){
+                 win += 1; 
+                 $("#NumberofWins").html(win); 
+                 
+             }
+             else if(!isComplete && numberof_Array == 0){
+                 lose +=1;
+                $("#otherSide").append("<p>" + "lose: " + lose + "</p>"); 
+                return; 
+             }
+
+            // win 
+            // if (!array_Target.includes("_")) {
+            //     isComplete = true;
+            //     win += 1; 
+            //        $("#numberofWins").html(win);
+            //        alert("you win"); 
+            // }
+            // else if (numberof_Array == 0) {
+            //     isComplete = false;
+            //     lose +=1;
+            //     $("#numberofLose").html(lose); 
+            //    alert("you lost");
+            
+
+            // }
         });
-      });
+    });
 });
+
+
+
+
