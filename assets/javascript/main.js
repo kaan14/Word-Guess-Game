@@ -88,11 +88,13 @@ $(document).ready(function () {
              if (isComplete && numberof_Array >= 0){
                  win += 1; 
                  $("#NumberofWins").html(win); 
+                 alert("you win");
                  
              }
              else if(!isComplete && numberof_Array == 0){
                  lose +=1;
                 $("#otherSide").append("<p>" + "lose: " + lose + "</p>"); 
+                alert("you lost");
                 return; 
              }
 
