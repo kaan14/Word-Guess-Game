@@ -1,0 +1,40 @@
+body{
+    background-color: #e1dcd9;
+}
+
+header{
+    position: relative;
+    top: 50px;
+    left: 350px;
+}
+
+#headerPic{
+    width: 580px;
+    height:250px ;
+    border: 1px solid;
+}
+
+
+#container{
+    display: block;
+    width: 700px;
+    margin: 20px;
+    margin-bottom: 100px;
+    position: relative;
+    left: 330px;
+    top: 100px;
+    
+
+}
+#wordPic{
+    width: 325px;
+    margin: 10px 10px 10px 10px; 
+    
+}
+#oneSide,#otherSide{
+    border: 2px dashed; 
+    float:left; 
+    height: 500px;
+    margin-right: 20px; 
+    padding: 10px;  
+}
