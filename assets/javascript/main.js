@@ -98,22 +98,6 @@ $(document).ready(function () {
                 return; 
              }
 
-            // win 
-            // if (!array_Target.includes("_")) {
-            //     isComplete = true;
-            //     win += 1; 
-            //        $("#numberofWins").html(win);
-            //        alert("you win"); 
-            // }
-            // else if (numberof_Array == 0) {
-            //     isComplete = false;
-            //     lose +=1;
-            //     $("#numberofLose").html(lose); 
-            //    alert("you lost");
-            
-
-            // }
-        });
     });
 });
 
