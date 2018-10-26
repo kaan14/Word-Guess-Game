@@ -42,7 +42,7 @@ $(document).ready(function () {
         numberof_Array = array_Target.length;
         $("#numberofGuess").html(numberof_Array);
 
-    });
+
         $(document).keypress(function (event) {
             //if entry is already in the list, alert user
             var keyCode = event.keyCode;
@@ -99,6 +99,7 @@ $(document).ready(function () {
             }
         });
     });
+});
 //});
 
 
