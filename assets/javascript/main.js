@@ -42,7 +42,7 @@ $(document).ready(function () {
         numberof_Array = array_Target.length;
         $("#numberofGuess").html(numberof_Array);
 
-
+    });
         $(document).keypress(function (event) {
             //if entry is already in the list, alert user
             var keyCode = event.keyCode;
@@ -82,21 +82,21 @@ $(document).ready(function () {
             }
 
             if (!array_Target.includes("_")) {
-                   isComplete = true;
-             }
+                isComplete = true;
+            }
 
-             if (isComplete && numberof_Array >= 0){
-                 win += 1; 
-                 $("#NumberofWins").html(win); 
-                 alert("you win");
-                 
-             }
-             else if(!isComplete && numberof_Array == 0){
-                 lose +=1;
-                $("#otherSide").append("<p>" + "lose: " + lose + "</p>"); 
+            if (isComplete && numberof_Array >= 0) {
+                win += 1;
+                $("#NumberofWins").html(win);
+                alert("you win");
+
+            }
+            else if (!isComplete && numberof_Array == 0) {
+                lose += 1;
+                $("#otherSide").append("<p>" + "lose: " + lose + "</p>");
                 alert("you lost");
-                return; 
-             }
+                return;
+            }
 
             // win 
             // if (!array_Target.includes("_")) {
@@ -110,12 +110,12 @@ $(document).ready(function () {
             //     lose +=1;
             //     $("#numberofLose").html(lose); 
             //    alert("you lost");
-            
+
 
             // }
         });
     });
-});
+//});
 
 
 
